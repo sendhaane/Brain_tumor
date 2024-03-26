@@ -1,0 +1,288 @@
+<html>
+
+<head>
+    <title>Brain tumor Detect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&family=Questrial&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<style>
+    @media(min-width:300px) and (max-width:999px) {
+
+        body {
+            font-family: 'Questrial', sans-serif;
+            background-image: url("/static/images/about-img.jpg");
+            padding-top: 40px;
+            padding-left: 40px;
+        }
+
+        .title {
+            font-size: 55px;
+            font-weight: bolder;
+        }
+
+        .about-us {
+            font-size: 35px;
+            font-weight: 600;
+            border-radius: 50px;
+            border-width: 0px;
+            background-color: #4BBBFB;
+            height: 71px;
+            width: 225px;
+            margin-left: 38vw;
+        }
+
+        .upload-title {
+            margin-top: 150px;
+            font-size: 120px;
+            font-weight: bold;
+        }
+
+        .part-content {
+            margin-top: 80px;
+            font-size: 50px;
+            font-weight: bold;
+            width: 400px;
+        }
+
+        .part-input {
+            position: absolute;
+            margin-top: 120px;
+            margin-left: 120px;
+            font-size: 40px;
+            border-radius: 50px;
+            padding: 5px;
+            text-align: center;
+            background-color: #A5A4A4;
+            color: white;
+            height: 59px;
+            width: 262px;
+        }
+
+        .image-content {
+            margin-top: 50px;
+            font-size: 50px;
+            font-weight: bold;
+            width: 350px;
+        }
+
+        .choose-file {
+            position: absolute;
+            margin-top: 120px;
+            margin-left: 80px;
+            font-size: 30px;
+            border-radius: 50px;
+            padding: 5px;
+            text-align: center;
+            background-color: #A5A4A4;
+            color: white;
+            height: 59px;
+            width: 462px;
+
+        }
+
+        .process-image {
+            margin-left: 220px;
+            margin-top: 70px;
+            font-size: 50px;
+            font-weight: 700;
+            border-width: 0px;
+            background-color: #4BBBFB;
+            align-items: center;
+            border-radius: 50px;
+            width: 50vw;
+            height: 10vw;
+        }
+
+        .image-link {
+            font-size: 50px;
+            color: black;
+            text-decoration: none;
+            width: 550px;
+            text-align: center;
+            margin-left: 180px;
+            margin-top: 60px;
+        }
+
+    }
+
+
+    @media (min-width:1000px) {
+        body {
+            font-family: 'Questrial', sans-serif;
+            background-image: linear-gradient(rgba(6, 14, 49, 0.7),rgba(3, 9, 36, 0.7)),url("/static/images/bg1.jpg");
+            
+            padding-top: 2.33vw;
+            padding-left: 3.33vw;
+        }
+       
+
+        .title {
+            font-weight: bolder;
+            color: green;
+        }
+
+        .about-us {
+            margin-left: 69.333vw;
+            height: 3vw;
+            width: 10vw;
+            border: none;
+            border-radius: 3.5vw;
+            background-color: #0ebd34;
+            font-size: 1.39vw;
+            font-weight: bold;
+        }
+
+        .upload-title {
+            margin-top: 1.5vw;
+            margin-left: 20vw;
+            font-size: 3vw;
+            width: 40vw;
+            font-weight: bold;
+            font-weight: bolder;
+            
+        }
+
+        .part-content {
+            margin-top: 2.5vw;
+            margin-left: 5vw;
+            font-size: 2vw;
+            width: 25vw;
+            font-weight: bolder;
+        }
+
+        .image-content {
+            margin-top: 2.5vw;
+            margin-left: 5vw;
+            font-size: 2vw;
+            width: 25vw;
+            font-weight: bolder;
+        }
+
+        .part-input {
+            position: absolute;
+            margin-top: 3vw;
+            margin-left: 13vw;
+            height: 2.3vw;
+            width: 20vw;
+            text-align: center;
+            border: none;
+            border-radius: 3.5vw;
+            background-color: #A5A4A4;
+            color: white;
+            font-size: 1.5vw;
+        }
+        .h11{
+            margin-top: 2.5vw;
+            margin-left: 30vw;
+            font-size: 2vw;
+            width: 25vw;
+            font-weight: bolder;
+            color: #4BBBFB;
+         }
+         .p11{
+            margin-top: 2.5vw;
+            margin-left: 29vw;
+            font-size: 2vw;
+            width: 25vw;
+            font-weight: bolder;
+            color: #4BBBFB;
+         }
+         
+         .img11{
+            margin-top: 2.5vw;
+            margin-left: 30vw;
+            font-size: 2vw;
+            width: 25vw;
+         }
+        .choose-file {
+            position: absolute;
+            margin-top: 3vw;
+            margin-left: 14vw;
+            height: 2.8vw;
+            width: 20vw;
+            font-size: 1.5vw;
+
+        }
+
+        .process-image {
+            margin-left: 30vw;
+            margin-top: 3vw;
+            height: 3vw;
+            width: 15vw;
+            border: none;
+            border-radius: 3.5vw;
+            background-color: #0ebd34;
+            font-size: 1.5vw;
+        }
+
+        .image-link {
+            font-size: 2.5vw;
+            color: black;
+            width: 27vw;
+            text-align: center;
+            margin-left: 24vw;
+            margin-top: 2vw;
+        }
+         
+        .content {
+            margin-left: 10vw;
+        }
+    }
+</style>
+
+<body>
+    <div class="container-flow">
+        <!--top nav bar-->
+        <div class="nav-contanier d-flex flex-row">
+            <div class="title-container">
+                <h1 class="title">Early diagnosis of Brain Tumor</h1>
+            </div>
+            <div class="aboutus-container">
+                <a href="http://127.0.0.1:5000"></a>
+            </div>
+        </div>
+
+        <!--upload image title-->
+        <div class="content">
+            <h1 class="upload-title">Please upload the image</h1>
+
+            <div class="image-container d-flex flex-column">
+                <div class="part-container">
+
+                    <div class="part-drop-down-contanier">
+
+                        <form action="/predict" method="POST" enctype="multipart/form-data">
+                            <br><br>
+                            <label for="imagefile" class="image-content">Upload the respective scan image:</label>
+                            <input type="file" name="image" class="choose-file"><br><br><br>
+                            <input type="submit" value="Predict" class="process-image">
+
+
+                        </form><br>
+                    </div>
+
+                </div>
+                {% if prediction_value %}
+                <h2 class="h11">Prediction Result:</h2>
+                <p class="p11">Tumor Confirmation: {{ prediction_value }}</p>
+                <p class="p11">Accuracy: {{ prediction_accuracy }}%</p>
+
+
+                <!-- <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;" class="img11"> -->
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

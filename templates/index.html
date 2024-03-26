@@ -1,0 +1,29 @@
+<html>
+    <head><title>Plant diasease prediction</title></head>
+
+<body>
+
+    <h1>Brain tumor Detection</h1><br>
+    <div class="container" style="margin-top: -10px;">
+        <div class="custom-form-box">
+
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <br><br><input type="file" name="image"><br><br><br>
+                <input type="submit" value="Predict">
+                    
+
+            </form><br>
+  {% if prediction_value %}
+    <h2>Prediction Result:</h2>
+    <p>Brain tumor: {{ prediction_value }}</p>
+    <p>Accuracy: {{ prediction_accuracy }}%</p>
+   
+    
+    <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
+
+ {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

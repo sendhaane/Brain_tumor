@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #map {
+      height: 750px;
+      width: 100%;
+    }
+
+    .controls {
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #pac-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 300px;
+    }
+
+    #pac-input:focus {
+      border-color: #4d90fe;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBUwVxTYMEiII6cJhXpOTmE9oJgxVRSGg&libraries=places&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+      var input = document.createElement('input');
+      input.id = 'pac-input';
+      input.className = 'controls';
+      input.type = 'text';
+      input.placeholder = 'Search Box';
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      var searchBox = new google.maps.places.SearchBox(input);
+
+      map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
+      });
+
+      var markers = [];
+
+      searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+
+        if (places.length === 0) {
+          return;
+        }
+        markers.forEach(function (marker) {
+          marker.setMap(null);
+        });
+        markers = [];
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function (place) {
+          if (!place.geometry) {
+            console.log('Returned place contains no geometry');
+            return;
+          }
+          markers.push(
+            new google.maps.Marker({
+              map: map,
+              title: place.name,
+              position: place.geometry.location,
+            })
+          );
+
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+      function performSearch(query) {
+        input.value = query;
+        google.maps.event.trigger(input, 'focus');
+        google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
+      }
+      performSearch('');
+    }
+  </script>
+</head>
+<body>
+  <div id="map"></div>
+</body>
+</html>
